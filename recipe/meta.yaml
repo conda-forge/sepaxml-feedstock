@@ -1,5 +1,5 @@
 {% set name = "sepaxml" %}
-{% set version = "2.4.0" %}
+{% set version = "2.4.1" %}
 
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/sepaxml-{{ version }}.tar.gz
-  sha256: 6fa18e97d21cfc27bd122d2862f2bc941501ed337603421026bd2578543bb2a4
+  sha256: 1f0eddc9895cd6b18f53188787a334730eb4d7082995baf578d209efadb8bdc2
 
 build:
   number: 0
