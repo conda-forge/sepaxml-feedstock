@@ -11,17 +11,17 @@ source:
   sha256: 1f6f747bb4e15a12af1034964424c9cc17481127229e8d95693a5a96a3267561
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
     - pip
-    - python >=3.6
+    - python {{ python_min }}
     - setuptools
   run:
-    - python >=3.6
+    - python >={{ python_min }}
     - text-unidecode
     - xmlschema
 
@@ -33,6 +33,7 @@ test:
     - pip check
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/raphaelm/python-sepaxml
