@@ -1,0 +1,46 @@
+schema_version: 1
+
+context:
+  name: sepaxml
+  version: "2.7.0"
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/sepaxml-${{ version }}.tar.gz
+  sha256: 77c6ea8c4ea59e53dcabed1d5d8bb79559a0aac47cf25c8e78b06ff5fef6c2bd
+
+build:
+  number: 1
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv
+
+requirements:
+  host:
+    - pip
+    - python ${{ python_min }}.*
+    - setuptools
+  run:
+    - python >=${{ python_min }}
+    - text-unidecode
+    - xmlschema
+
+tests:
+  - python:
+      imports:
+        - sepadd
+        - sepaxml
+      pip_check: true
+      python_version: ${{ python_min }}
+
+about:
+  summary: Python SEPA XML implementations
+  license: MIT
+  license_file: LICENSE
+  homepage: https://github.com/raphaelm/python-sepaxml
+
+extra:
+  recipe-maintainers:
+    - jan-janssen
